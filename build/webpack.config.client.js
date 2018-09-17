@@ -2,6 +2,7 @@ const path = require("path");
 const HTMLPlugin = require("html-webpack-plugin");
 
 module.exports = {
+    mode: "development",
     entry: {
         app: path.join(__dirname, "../client/app.js")
     },
