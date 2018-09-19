@@ -27,7 +27,9 @@ module.exports = {
         ]
     },
     plugins: [
-        new HTMLPlugin()
+        new HTMLPlugin({
+            template: path.join(__dirname,"../client/template.html")
+        })
     ]
 
 };
