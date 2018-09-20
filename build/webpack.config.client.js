@@ -1,7 +1,9 @@
 const path = require("path");
 const HTMLPlugin = require("html-webpack-plugin");
 
-module.exports = {
+const isDev = process.env.NODE_ENV === "development";
+
+const config = {
     mode: "development",
     entry: {
         app: path.join(__dirname, "../client/app.js")
@@ -33,3 +35,17 @@ module.exports = {
     ]
 
 };
+
+if (isDev) {
+    config.devServer = {
+        host: "0.0.0.0",
+        port: 8888,
+        contentBase: path.join(__dirname, "../dist"),
+        hot: true,
+        overlay: {
+            errors: true
+        }
+    }
+}
+
+module.exports = config;
